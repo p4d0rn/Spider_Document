@@ -6,8 +6,8 @@ This repository is for review and reference
 
 # :spider:Hit The Web
 
-*  <a href="">foundation of spider</a>
-* <a href="">requests</a>
+*  <a href="https://github.com/p4d0rn/Spider_Document/blob/main/Foundation/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80.md">foundation of spider</a>
+* <a href="https://github.com/p4d0rn/Spider_Document/blob/main/Foundation/%E5%8E%9F%E7%94%9Frequests%E5%BA%93.md">requests</a>
 
 # :spider_web:Scrapy Framework
 
@@ -26,13 +26,25 @@ This repository is for review and reference
 
 # :factory:Date Process
 
-<a href="">Xpath & Beautiful</a>
+<a href="https://github.com/p4d0rn/Spider_Document/blob/main/Data%20Process/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%8F%90%E5%8F%96.md">Xpath & Beautiful</a>
 
-<a href="">regex</a>
+<a href="https://github.com/p4d0rn/Spider_Document/blob/main/Data%20Process/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.md">regex</a>
 
 # :sweat_drops:Dynamic Render
 
-* <a href=""> Selenium</a>
+* <a href="https://github.com/p4d0rn/Spider_Document/blob/main/Foundation/selenium.md"> Selenium</a>
 * Pyppeteer
 * Playwright
+
+
+
+
+
+------
+
+##### :yum:Good Book
+
+*Python3网络爬虫开发实战——崔庆才*
+
+
 
