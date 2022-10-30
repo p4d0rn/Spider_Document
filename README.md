@@ -21,14 +21,15 @@ This repository is for review and reference
 
 # :house_with_garden:Data Storage
 
-1. MongoDB
-2. <a href="https://github.com/p4d0rn/Spider_Document/blob/main/Neo4j/python%E6%93%8D%E4%BD%9Cneo4j.md">Neo4j</a>
+* MongoDB
+* <a href="https://github.com/p4d0rn/Spider_Document/blob/main/Neo4j/python%E6%93%8D%E4%BD%9Cneo4j.md">Neo4j</a>
+* csv
+* json
 
 # :factory:Date Process
 
-<a href="https://github.com/p4d0rn/Spider_Document/blob/main/Data%20Process/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%8F%90%E5%8F%96.md">Xpath & Beautiful</a>
-
-<a href="https://github.com/p4d0rn/Spider_Document/blob/main/Data%20Process/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.md">regex</a>
+* <a href="https://github.com/p4d0rn/Spider_Document/blob/main/Data%20Process/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%8F%90%E5%8F%96.md">Xpath & Beautiful</a>
+* <a href="https://github.com/p4d0rn/Spider_Document/blob/main/Data%20Process/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.md">regex</a>
 
 # :sweat_drops:Dynamic Render
 
