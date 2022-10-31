@@ -188,7 +188,7 @@ class QuotesSpider(scrapy.Spider):
 
 scrapy本身提供了保存爬取结果的工具——Feed Exports
 
-`scrapy crawl quotes -o quotes.json`
+`scrapy crawl quotes -o quotes.json -s FEED_EXPORT_ENCODING="utf-8" `
 
 Feed Exports支持很多格式，如jl、csv、xml、json、pickle、marshal
 

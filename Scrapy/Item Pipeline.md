@@ -42,5 +42,82 @@ Item Pipeline的主要功能
 
 :four_leaf_clover:Data Storage: MongoDB
 
+```python
+# ssr1.py
+import scrapy
+from scrapy import Request
+from movie.items import MovieItem
 
 
+class Ssr1Spider(scrapy.Spider):
+    name = 'ssr1'
+    allowed_domains = ['ssr1.scrape.center']
+    start_url = 'http://ssr1.scrape.center'
+    max_page = 10
+
+    def start_requests(self):
+        for i in range(1, self.max_page + 1):
+            url = f'{self.start_url}/page/{i}'
+            yield Request(url=url, callback=self.parse_index)
+
+    def parse_index(self, response):
+        for item in response.css('.item'):
+            href = item.css('.name::attr(href)').extract_first()
+            url = response.urljoin(href)
+            yield Request(url=url, callback=self.parse_detail)
+
+    def parse_detail(self, response):
+        item = MovieItem()
+        item['name'] = response.css('h2::text').extract_first()
+        item['categories'] = response.css('.categories span::text').extract()
+        item['score'] = response.css('.score::text').extract_first().strip()
+        item['drama'] = response.css('.drama p::text').extract_first().strip()
+        item['directors'] = response.css('.directors .name::text').extract()
+        item['actors'] = response.css('.actors .name::text').extract()
+        yield item
+```
+
+```python
+# pipelines.py
+import pymongo
+class MongoDBPipeline(object):
+
+    def __init__(self, connection, database, collection):
+        self.connection = connection
+        self.database = database
+        self.collection = collection
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        return cls(connection=crawler.settings.get('MONGODB_CONNECTION_STRING'),
+                   database=crawler.settings.get('MONGODB_DATABASE'),
+                   collection=crawler.settings.get('MONGODB_COLLECTION')
+                   )
+
+    def open_spider(self, spider):
+        self.client = pymongo.MongoClient(self.connection)
+        self.db = self.client[self.database]
+
+    def process_item(self, item, spider):
+        self.db[self.collection].update_one({
+            'name': item['name']
+        }, {
+            '$set': dict(item)
+        }, True)
+        return item
+
+    def close_spider(self, spider):
+        self.client.close()
+```
+
+```python
+# settings.py
+ITEM_PIPELINES = {
+    'movie.pipelines.MongoDBPipeline': 300,
+}
+MONGODB_CONNECTION_STRING = 'localhost'
+MONGODB_DATABASE = 'scrapy'
+MONGODB_COLLECTION = 'movie'
+```
+
+![image-20221031101006537](../images/image-20221031101006537.png)
