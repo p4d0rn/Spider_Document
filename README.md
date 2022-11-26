@@ -37,9 +37,9 @@ This repository is for review and reference
 * Pyppeteer
 * Playwright
 
+# :crossed_swords:Anti-Spider
 
-
-
+To Be Continued....
 
 ------
 
